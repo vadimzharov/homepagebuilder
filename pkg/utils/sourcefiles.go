@@ -99,19 +99,28 @@ func CopySourceToAssets(srcfilename string, destfilename string) {
 
 }
 
-func eraseSourceFiles() {
+func EraseAllSourceFiles() {
 
-	// Get a list of all the files in the directory
 	files, err := filepath.Glob(filepath.Join(sourcePathPrefix, "*"))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Iterate over the list of files and delete each one
 	for _, file := range files {
 		err = os.Remove(file)
 		if err != nil {
 			log.Fatal(err)
 		}
 	}
+}
+
+func EraseSourceFile(filename string) {
+
+	filePath := sourcePathPrefix + filename
+
+	err := os.Remove(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 }

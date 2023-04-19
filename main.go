@@ -12,7 +12,9 @@ import (
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
 
+	"github.com/vadimzharov/homepagebuilder/pkg/handlers"
 	"github.com/vadimzharov/homepagebuilder/pkg/pagebuilder"
+	_ "github.com/vadimzharov/homepagebuilder/pkg/utils"
 )
 
 func main() {
@@ -29,12 +31,11 @@ func main() {
 		AllowCredentials: true,
 		MaxAge:           12 * time.Hour,
 	}))
-	router.GET("/api/regenerateall", regenerateAll)
+
+	router.GET("/api/regenerateall", handlers.RegenerateAll)
+	router.GET("/api/regeneratemain", handlers.RegenerateMain)
+	router.GET("/api/regeneratepanels", handlers.RegeneratePanels)
+	router.GET("/api/regenerateapps", handlers.RegenerateAppsDescription)
 	router.Run(":8080")
 
-}
-
-func regenerateAll(c *gin.Context) {
-	pagebuilder.BuildNewPage()
-	return
 }
