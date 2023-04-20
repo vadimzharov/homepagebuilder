@@ -1,0 +1,27 @@
+page_title: "Applications running in my K8S cluster"
+panels:
+  - name: "Home Assistant"
+    url: https://hass.apps.example.com
+    image: "https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_homeassistant_icon_130543.png"
+  - name: "Invidious"
+    url: https://invidious.apps.example.com
+  - name: "Invidious (via VPN)"
+    url: "https://invidiousvpn.apps.example.com"    
+  - name: "Jellyfin"
+    url: http://jellyfin-s3.apps.example.com
+  - name: "Photoprism"
+    url: "https://pict.apps.example.com/"
+  - name: "Transmission"
+    url: "http://transmission.apps.example.com/"
+  - name: "Trilium"
+    url: "https://trilium.apps.example.com/"
+  - name: "Vaultwarden"
+    url: "https://vw.apps.example.com/"
+  - name: "VPN Switcher"
+    url: "http://vpn.apps.example.com/"
+  - name: "Syncthing"
+    url: "https://syncthing.apps.example.com/"
+chatgpt_key: "XXXXXYYYYYXXXXX"    
+
+
+
