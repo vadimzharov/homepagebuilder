@@ -9,7 +9,7 @@ import (
 type panelConfig struct {
 	Name        string `mapstructure:"name"`
 	URL         string `mapstructure:"url"`
-	Icon        string `mapstructure:"icon"`
+	ImageURL    string `mapstructure:"icon"`
 	ImageWidth  string
 	ImageHeight string
 	Image       bool
@@ -20,6 +20,8 @@ type DashboardConfig struct {
 	Panels        []panelConfig `mapstructure:"panels"`
 	ChatGPTAPIKey string        `mapstructure:"chatgpt_key"`
 }
+
+//var dbconfig DashboardConfig
 
 func ReadConfig() *DashboardConfig {
 
@@ -35,6 +37,18 @@ func ReadConfig() *DashboardConfig {
 
 	viper.Unmarshal(&dbconfig)
 
+	tuneConfig(&dbconfig)
+
 	return &dbconfig
+
+}
+
+func tuneConfig(dbconfig *DashboardConfig) {
+
+	for i := range dbconfig.Panels {
+		if dbconfig.Panels[i].ImageURL != "" {
+			dbconfig.Panels[i].Image = true
+		}
+	}
 
 }

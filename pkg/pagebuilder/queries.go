@@ -9,7 +9,7 @@ Main page should follow the requirements:
 3. There can be multiple panels in one line.
 4. Insert comment showing where I can paste panels code, comment should have phrase "INSERT PANELS CODE HERE"
 5. Have a grid layout.
-6. Have button on the bottom, each of them is calling Javascript to call API endpoint. Include Javascript code in the generated HTML code. List of the buttons:
+6. Have buttons on the bottom, each of them is calling Javascript to call API endpoint. Include Javascript code in the generated HTML code. List of the buttons:
 * Button title - "Regenerate all assets" and it should call API endpoint "/api/regenerateall" via Javascript code included in the generated HTML code
 * Button title - "Regenerate main page layout" and it should call API endpoint "/api/regeneratemain" via Javascript code included in the generated HTML code
 * Button title - "Regenerate panels layout" and it should call API endpoint "/api/regeneratepanels" via Javascript code included in the generated HTML code
@@ -22,8 +22,8 @@ Requirements for the item/generated Golang HTML template:
 * The item title set as {{.Name}}
 * The item must have fancy theme. Include fancy theme CSS styles in the generated HTML template.
 * The item must have a detailed description of the application. Use {{.Description}} in the template for this.
-* The item should provide URL where this application is hosted. Use {{.URL}} in the template for this. URL should be opening in a new tab.
-* The item should have shades
+* The item should provide URL where this application is hosted. Use {{.URL}} in the template for this. The URL should be activated by pressing the button and opens in a new tab.
+* The item should be framed and have shades.
 * Image for the item must be optional if {{.Image}} set to true. If image is defined, use image from URL set as {{.ImageURL}} in the template and size of the image must be set as width = {{.ImageWidth}} and height = {{.ImageHeight}}
 Do not use any other variables in the Golang HTML template except listed above.
 `

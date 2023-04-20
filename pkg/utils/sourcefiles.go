@@ -107,10 +107,19 @@ func EraseAllSourceFiles() {
 	}
 
 	for _, file := range files {
-		err = os.Remove(file)
+
+		fileInfo, err := os.Stat(file)
 		if err != nil {
 			log.Fatal(err)
 		}
+		if !fileInfo.IsDir() {
+			err = os.Remove(file)
+			if err != nil {
+				log.Fatal(err)
+			}
+
+		}
+
 	}
 }
 
