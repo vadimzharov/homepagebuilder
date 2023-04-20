@@ -28,6 +28,8 @@ var panelquery string
 
 func BuildNewPage() {
 
+	utils.CreateDirectories()
+
 	dbconfig, customQueries := config.ReadConfig()
 
 	if customQueries.Mainpagequery != "" {

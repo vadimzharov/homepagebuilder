@@ -12,6 +12,22 @@ import (
 const sourcePathPrefix string = "source/"
 const assetsPathPrefix string = "assets/"
 
+func CreateDirectories() {
+	for _, dirPath := range []string{sourcePathPrefix, assetsPathPrefix} {
+
+		if _, err := os.Stat(dirPath); os.IsNotExist(err) {
+
+			err = os.MkdirAll(dirPath, 0755)
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
+
+			log.Println("Creating directory", dirPath)
+		}
+	}
+}
+
 func SourceFileExists(filename string) bool {
 
 	filePath := sourcePathPrefix + filename
