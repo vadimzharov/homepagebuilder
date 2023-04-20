@@ -1,6 +1,6 @@
 package pagebuilder
 
-const mainpagequery string = `You are a web developer. As a web developer, you need to generate HTML code to a create a web page, and the main purpose of this web page is to provide list of applications available and running in my Kubernetes cluster. 
+const Defaultmainpagequery string = `You are a web developer. As a web developer, you need to generate HTML code to a create a web page, and the main purpose of this web page is to provide list of applications available and running in my Kubernetes cluster. 
 The page will have a list of panels, where one panel represents one application running in my Kubernetes cluster.
 As the first answer, provide me HTML code for the main page, but do not include HTML code for each panel. 
 Main page should follow the requirements:	
@@ -17,7 +17,7 @@ Main page should follow the requirements:
 `
 
 // 6. Have a button on the bottom calling Javascript to call API endpoint "/api/regenerateall". Include Javascript code in the generated HTML code. The button name is "Regenerate all pages"
-const panelquery string = `You are a web developer. As a web developer, you need to generate Golang HTML Template for an item describing an application. This item's code will be inserted to the main page with the grid layout.
+const Defaultpanelquery string = `You are a web developer. As a web developer, you need to generate Golang HTML Template for an item describing an application. This item's code will be inserted to the main page with the grid layout.
 Requirements for the item/generated Golang HTML template:
 * The item title set as {{.Name}}
 * The item must have fancy theme. Include fancy theme CSS styles in the generated HTML template.

@@ -2,10 +2,11 @@ package pagebuilder
 
 import (
 	"bytes"
-	_ "html/template"
+	"html/template"
 	"log"
 	"strings"
-	"text/template"
+
+	//"text/template"
 
 	_ "encoding/json"
 
@@ -14,7 +15,7 @@ import (
 
 func panelTemplateValid(panelcode string) bool {
 
-	DBConfig = config.ReadConfig()
+	DBConfig, _ = config.ReadConfig()
 
 	tmpl, err := template.New("test").Parse(panelcode)
 	if err != nil {
@@ -30,7 +31,7 @@ func panelTemplateValid(panelcode string) bool {
 }
 
 func GeneratePanelsConfig(apps []Applications) {
-	DBConfig = config.ReadConfig()
+	DBConfig, _ = config.ReadConfig()
 
 	for i := range DBConfig.Panels {
 

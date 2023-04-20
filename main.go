@@ -5,7 +5,6 @@ import (
 
 	"time"
 
-	//"net/http"
 	_ "os"
 
 	"github.com/gin-contrib/cors"

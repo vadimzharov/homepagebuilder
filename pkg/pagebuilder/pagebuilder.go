@@ -23,9 +23,24 @@ type Applications struct {
 
 var DBConfig *config.DashboardConfig
 
+var mainpagequery string
+var panelquery string
+
 func BuildNewPage() {
 
-	dbconfig := config.ReadConfig()
+	dbconfig, customQueries := config.ReadConfig()
+
+	if customQueries.Mainpagequery != "" {
+		mainpagequery = customQueries.Mainpagequery
+	} else {
+		mainpagequery = Defaultmainpagequery
+	}
+
+	if customQueries.Panelquery != "" {
+		panelquery = customQueries.Panelquery
+	} else {
+		panelquery = Defaultpanelquery
+	}
 
 	var applications []Applications
 
